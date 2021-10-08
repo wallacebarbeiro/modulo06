@@ -1,0 +1,18 @@
+{
+  "name": "modulo-06-bootcamp-extra",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "projetos/*"
+    ]
+  },
+  "scripts": {
+    "site": "yarn workspace @wallacebarbeiro/site",
+    "site:dev": "yarn site dev",
+    "ui": "yarn workspace @wallacebarbeiro/ui",
+    "ui:start": "yarn ui start"
+  }
+}
