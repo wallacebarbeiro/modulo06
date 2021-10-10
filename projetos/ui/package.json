@@ -6,26 +6,28 @@
   "peerDependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "5.2.3"   
+    "styled-components": "5.2.3"
   },
-  "dependencies": {    
+  "dependencies": {  
+    "lodash": "^4.17.21",
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2"
   },
-  "scripts": {   
+  "scripts": {
     "start": "start-storybook -p 6006 -s public",
     "build": "build-storybook -s public -o build"
-  },  
+  },
   "devDependencies": {
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
     "@storybook/addon-actions": "^6.3.10",
     "@storybook/addon-essentials": "^6.3.10",
     "@storybook/addon-links": "^6.3.10",
     "@storybook/node-logger": "^6.3.10",
     "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.3.10"
+    "@storybook/react": "^6.3.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/lodash": "^4.14.175"
   }
 }
