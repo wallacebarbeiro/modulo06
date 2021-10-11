@@ -12,7 +12,7 @@ interface ButtonBaseProps {
    * Passa via children o que deseja renderizar dentro do botão 
    */
   children: React.ReactNode;
-  onClick: React.MouseEventHandler<HTMLButtonElement>
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
  
 };
 
@@ -39,7 +39,8 @@ function Button({ type, children, disabled, color, onClick }: ButtonProps): JSX.
 
 Button.defaultProps = {
   disabled: false,
-  color: 'primary.main'
+  color: 'primary.main',
+  onClick: () => {}
 }
 
 export default Button;

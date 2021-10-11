@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { UIProvider } from '@wallacebarbeiro/ui/src/theme/UIProvider';
 import Button  from '@wallacebarbeiro/ui/src/components/Button';
  
 const Title = styled.h1`
@@ -8,13 +9,16 @@ const Title = styled.h1`
 
 export default function Home() {
   return (
-    <div>
-      <Title>
-        Com button
-      </Title>
-      <Button>
-          Meu primeiro botão 
-      </Button>
-    </div>
+    <UIProvider>
+      <div>
+        
+          <Title>
+            Com button
+          </Title>
+          <Button disabled>
+              Meu primeiro botão 
+          </Button>
+      </div>
+    </UIProvider>
   );
 }
