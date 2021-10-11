@@ -1,26 +1,9 @@
 import React from "react";
-import styled from 'styled-components';
-import get from 'lodash/get';
+import { ButtonWrapper, ButtonWrapperProps } from "./styles/ButtonWrapper";
 
 
-const ButtonWrapper = styled.button`
-  border:0;
-  cursor: pointer;
-  padding: 12px 26px;
-  font-weight: bold;
-  opacity: 1;
-  border-radius: 8px;
-
-  color: ${({theme, color}) => get(theme, `colors.${color}.contrastText`)};
-  background: ${({theme, color}) => get(theme, `colors.${color}.color`)};
-
-  &disabledc {
-    cursor: not-allowed;
-    opacity: 0.2;
-  }
-`;
-
-interface ButtonProps {
+interface ButtonBaseProps {
+  type?: "button" | "submit" | "reset";
   /**
    * Essa prop usa o disabled padrão do html e aplica um css junto
    */
@@ -29,11 +12,29 @@ interface ButtonProps {
    * Passa via children o que deseja renderizar dentro do botão 
    */
   children: React.ReactNode;
-  color: string 
+  onClick: React.MouseEventHandler<HTMLButtonElement>
+ 
 };
 
-const Button = ({ children, disabled, color }: ButtonProps) => {
-  return  <ButtonWrapper disabled={disabled} color={color}>{children}</ButtonWrapper>;
+type ButtonProps = ButtonBaseProps & ButtonWrapperProps;
+
+interface Pokemon {
+  nome: string
+}
+
+function pegaPokemons(): Promise<Pokemon> {
+  return fetch('url')
+    .then((respostaDoServer) => {
+      return respostaDoServer.json();
+    });
+}
+
+pegaPokemons();
+
+function Button({ type, children, disabled, color, onClick }: ButtonProps): JSX.Element {
+  return  (
+    <ButtonWrapper type={type} disabled={disabled} color={color} onClick={onClick}>{children}</ButtonWrapper>)
+    ;
 };
 
 Button.defaultProps = {
